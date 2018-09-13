@@ -1,0 +1,120 @@
+
+
+
+  .register-container
+  {
+    height: 100%;
+    width: 100%;
+    padding-top: 20px;
+  }
+  
+  .form-wrapper {
+   margin: 20px auto;
+    padding: 5px 25px;
+    border-radius: 5px;
+    width: 60%; /*
+    margin: 45px auto;
+    padding: 30px 25px;
+    border-radius: 5px; */
+  }
+  
+  .form-img {
+    display: block;
+    height: 150px;
+    width: 150px;
+    margin: auto auto auto auto;
+    background: #eee;
+  }
+  
+  .label {
+    font-size: 14px;
+    display: block;
+    float: left;
+    margin: 2px 0 6px 2px;
+    font-weight: bold;
+    color: #616161;
+  }
+  
+
+  
+  
+  .p {
+    font-size: 12px;
+    text-align: center;
+    color:black;
+    margin: 25px 0 0 0;
+  }
+  
+  .save-btn {
+    width: 10%;
+    float: right;
+    color: #fff;
+    margin-right: 10px;
+    text-align: center;
+    background-color: green;
+    border: 1px solid transparent;
+    padding: 10px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .save-btn:hover {
+    background-color: darkgreen;
+  }
+  
+  .cancel-btn {
+    width: 10%;
+    float: right;
+    color: #fff;
+    text-align: center;
+    background-color: red;
+    border: 1px solid transparent;
+    padding: 10px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .cancel-btn:hover {
+    background-color:darkred;
+  }
+  
+  
+  
+.grid-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 15px;
+  padding: 30px 20px;
+}
+
+.grid-container div {
+  background-color: white;
+  text-align: center;
+  color: black;
+  width: 100%;
+  padding: 10px 0;
+  transition: box-shadow .3s;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.grid-container div:hover {
+  box-shadow: 0 0 10px darkcyan;
+}
+
+
+.gridImg2 {
+  width: 200px;
+  height: 200px;
+}
+
+i {
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+  
+  
+  
+  

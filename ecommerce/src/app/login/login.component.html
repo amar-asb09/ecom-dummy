@@ -1,0 +1,33 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+  <div class="center">
+    <div class="login-container">
+      <img class="form-img" src="../../assets/images/login.png" alt="">
+      <div class="form-wrapper">
+        <form class="form" (submit)="loginUser()">
+            <div *ngIf="serverError" class="alert alert-danger">
+                {{serverError}}
+              </div>
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input type="email" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" name="email" placeholder="" required [(ngModel)]="email">
+          </div>
+
+          <div class="form-group">
+            <label for="username" class="label">Password</label>
+            <input type="password" class="form-control" #name="ngModel" name="password" placeholder="" required [(ngModel)]="password">
+          </div>
+
+          <button class="login-btn">Log In</button>
+          <p class="p">
+            <a class="link" href="#">Forgot Password?</a>
+          </p>
+
+        </form>
+
+        <p class="p">Don't have an account? <a class="link" [routerLink]="['/register']">Sign up</a></p>
+      </div>
+    </div>
+  </div>
+</body>

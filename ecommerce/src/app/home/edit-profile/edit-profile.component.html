@@ -1,0 +1,64 @@
+<div class="grid-container">
+<img class="form-img" src="../../assets/images/register.png" alt="">
+<div class="form-wrapper">
+  <form (submit)="onSubmit(userForm)" #userForm="ngForm" class="form">
+    {{userForm.value | json }}
+    <div *ngIf="statusMsg" class="alert alert-danger">
+      {{statusMsg}}
+    </div>
+    <div class="form-group">
+      <label for="name" class="label">Name</label>
+      <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" name="realm"
+        class="form-control" placeholder="" minlength="4" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="email" class="label">Email</label>
+      <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="email"
+        class="form-control" placeholder="" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="label">Mobile no.</label>
+      <input type="tel" #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" name="phone" class="form-control"
+        placeholder="" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="gender" class="label">Gender</label>
+      <input type="radio" name="gender" ngModel value="male"> Male
+      <input type="radio" name="gender" ngModel value="female"> Female
+    </div>
+
+    <div ngModelGroup="userAddress">
+      <div class="form-group">
+        <label class="label">House No.</label>
+        <input type="text" class="form-control" name="house" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">Street</label>
+        <input type="text" class="form-control" name="street" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">Area</label>
+        <input type="text" class="form-control" name="area" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">City</label>
+        <input type="text" class="form-control" name="city" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">ZIP/PIN</label>
+        <input type="text" class="form-control" name="pincode" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">State</label>
+        <input type="text" class="form-control" name="state" ngModel>
+      </div>
+      <div class="form-group">
+        <label class="label">Country</label>
+        <input type="text" class="form-control" name="country" ngModel>
+      </div>
+    </div>
+    <button type="reset" class="cancel-btn">Reset</button>
+    <button type="submit" class="save-btn">Save</button>
+  </form>
+</div>
+</div>

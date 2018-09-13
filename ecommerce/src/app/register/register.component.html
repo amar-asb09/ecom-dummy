@@ -1,0 +1,35 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+  <div class="center">
+    <div class="register-container">
+      <img class="form-img" src="../../assets/images/register.png" alt="">
+      <div class="form-wrapper">
+        <form (submit)="onSubmit()" class="form">
+          <div *ngIf="serverError" class="alert alert-danger">
+            {{serverError}}
+          </div>
+          <div class="form-group">
+            <label for="username" class="label">Name</label>
+            <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" name="username"  class="form-control" placeholder=""  minlength="4" [(ngModel)]="userName">
+          </div>
+          <div class="form-group">
+            <label for="email" class="label">Email</label>
+            <input type="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="email" class="form-control" placeholder="" [(ngModel)]="userEmail">
+          </div>
+          <div class="form-group">
+            <label for="passowrd" class="label">Password</label>
+            <input type="password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched" name="passowrd" class="form-control" placeholder="" [(ngModel)]="userPassword">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword" class="label">Confim Password</label>
+            <input type="password" required #confPswd="ngModel" [class.is-invalid]="confPswd.invalid && confPswd.touched"  name="confPswd" class="form-control" placeholder="" [(ngModel)]="userConfPswd">
+          </div>
+
+          <button class="register-btn">Register</button>
+        </form>
+        <p class="p">Already have an account? <a class="link" [routerLink]="['/login']">Log In</a></p>
+      </div>
+    </div>
+  </div>
+</body>

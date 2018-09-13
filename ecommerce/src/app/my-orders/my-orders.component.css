@@ -1,0 +1,48 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 15px;
+    padding: 25px 20px;
+    width: auto;
+  }
+  
+  .grid-container-div {
+    background-color: white;
+    text-align: center;
+    color: black;
+    width: 100%;
+    padding: 10px 0;
+    transition: box-shadow .3s;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .grid-container-div:hover {
+    box-shadow: 0 0 10px darkcyan;
+  }
+  
+  
+  .gridImg {
+    width: 200px;
+    height: 200px;
+  }
+  .empty
+  {
+    background-color:white;
+    text-align: center;
+    height: 200px;
+    padding: 95px;
+  }
+
+.title
+{
+  text-align: center;
+}
+
+.myalert
+{
+    width: 50%;
+    text-align: center;
+    margin: 50px auto 0 auto;
+}

@@ -1,0 +1,42 @@
+{
+  "name": "cart",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "productPrice": {
+      "type": "number",
+      "required": true
+    },
+    "productDesc": {
+      "type": "string",
+      "required": false
+    },
+    "paid": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+"paymentType": {
+      "type": "string",
+      "required": true,
+      "default": "COD"
+    },
+    "status": {
+      "type": "string",
+      "required": true,
+      "default": "in-cart"
+    }
+
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

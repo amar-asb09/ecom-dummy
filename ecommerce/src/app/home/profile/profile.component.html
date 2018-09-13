@@ -1,0 +1,20 @@
+<!-- <h2> Welcome {{user.userName}} ! </h2>
+    <img class="gridImg" src="http://cdn.onlinewebfonts.com/svg/img_568657.png" alt="Image">
+    <div class="leftAlign">
+      <h4>Name : <span> {{user.userName}} </span> </h4>
+      <h4>Email : <span> {{user.userEmail}} </span> </h4>
+      <h4>Phone No. : <span> {{user.userPhone}} </span> </h4>
+      <h4>Gender : <span> {{user.userGender}}</span> </h4>
+      <h4>City : <span> {{user.userCity}}</span> </h4>
+    </div> -->
+
+
+
+<div class="register-container">
+  <div *ngFor="let data of data" class="form-wrapper">
+    <img class="gridImg" src="https://image.flaticon.com/icons/png/512/22/22791.png" alt="Image">
+    <h3>{{data.realm }}</h3>
+    <h3>{{data.email}}</h3>
+    <button (click)="openEdit()" class="save-btn">Add Info</button>
+  </div>
+</div>

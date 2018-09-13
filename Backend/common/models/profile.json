@@ -1,0 +1,63 @@
+{
+  "name": "profile",
+  "plural": "profiles",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "realm": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "number",
+      "required": false
+    },
+    "gender": {
+      "type": "string",
+      "required": false
+    },
+    "address": {
+      "type": {
+        "house": {
+          "type": "string",
+          "required": false
+        },
+        "street": {
+          "type": "string",
+          "required": false
+        },
+        "area": {
+          "type": "string",
+          "required": false
+        },
+        "city": {
+          "type": "string",
+          "required": false
+        },
+        "pincode": {
+          "type": "number",
+          "required": true
+        },
+        "state": {
+          "type": "string",
+          "required": false
+        },
+        "country": {
+          "type": "string",
+          "required": false
+        }
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

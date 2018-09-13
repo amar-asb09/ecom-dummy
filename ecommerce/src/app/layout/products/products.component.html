@@ -1,0 +1,59 @@
+<div class="jumbotron">
+  <div class="register-container">
+    <img class="form-img" src="../../assets/images/add-image.png" alt="">
+    <div class="form-wrapper">
+      <form class="form" #productForm="ngForm">
+        <div *ngIf="statusMsg" class="alert alert-success">
+          {{statusMsg}}
+        </div>
+        <!--{{productForm.value | json }} -->
+        <h3 *ngIf="isEdit"> Edit Item : {{itemId}} </h3>
+        <div class="form-group">
+          <label for="name" class="label" >Name</label>
+          <input type="text" required #pname="ngModel" [class.is-invalid]="pname.invalid && pname.touched" name="name"
+            class="form-control" placeholder="" minlength="4" [ngModel]="itemName">
+        </div>
+        <div class="form-group">
+          <label for="price" class="label">Price</label>
+          <input type="number" required #pprice="ngModel" [class.is-invalid]="pprice.invalid && pprice.touched" name="price"
+            class="form-control" placeholder="" [ngModel]="itemPrice">
+        </div>
+        <div class="form-group">
+          <label for="description" class="label">Details</label>
+          <input type="text" #pdesc="ngModel" [class.is-invalid]="pdesc.invalid && pdesc.touched" name="description"
+            class="form-control" placeholder="" [ngModel]="itemDesc">
+        </div>
+        <!-- <div class="form-group">
+          <input type="checkbox" name="in-stock" ngModel>
+          <label for="instock" class="label">Available</label>
+
+        </div> -->
+        <div class="form-group">
+          <label for="stock" class="label"> In Stock </label>
+          <select class="form-control" name="stock" ngModel>
+            <option value="No"> Not Available</option>
+            <option value="Yes" > Available</option>
+          </select>
+        </div>
+        <button type="reset" class="cancel-btn">Reset</button>
+        <button *ngIf="!isEdit" (click)="onSubmit(productForm)" type="reset" class="save-btn">Save</button>
+        <button *ngIf="isEdit" (click)="updateItem(productForm)" type="reset" class="save-btn">update</button>
+      </form>
+    </div>
+  </div>
+  <div class="grid-container">
+    <div *ngIf="err" class="alert alert-danger">
+      {{err}}
+    </div>
+    <div class="box" *ngFor="let product of product">
+      <img class="gridImg2" src="https://image.flaticon.com/icons/png/512/22/22791.png" alt="Image">
+      <h5> {{product.name | uppercase }}</h5>
+      <h4>{{product.price | currency:'INR' }}</h4>
+      <p> {{product.description}}</p>
+      <p>{{product.id}}</p>
+      <p style="color:green">In Stock: {{product.stock}}</p>
+      <button class="btn btn-danger" style="float:right; margin-right:10px" (click)="deleteItem(product)"> Delete</button>
+      <button class="btn btn-info" style="float:right; margin-right:10px" (click)="makeEdit(product)"> Edit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="sidenav">
+  <a (click)=(showProfile())><span></span><i class="material-icons">person</i>Profile</a>
+  <a (click)="recentItems()"><i class="material-icons">
+      replay
+    </i>Recent Items</a>
+  <a (click)="wishList()"><i class="material-icons">
+      favorite
+    </i>WishList</a>
+  <a (click)="myOrders()"><i class="material-icons">
+      card_giftcard
+    </i>My Orders</a>
+  <a (click)="goToCart()"><i class="material-icons">
+      shopping_cart
+    </i>My Cart</a>
+  <a (click)="registerClient()"><i class="material-icons">
+      accessibility_new
+    </i>Sell Here</a>
+  <a (click)="contatcUs()"><i class="material-icons">
+      contact_support
+    </i>Contact Us</a>
+  <a (click)="help()"><i class="material-icons">
+      live_help</i> Live Help</a>
+</div>
+
+<div class="main">
+  <header>
+    <nav class="navbar navbar-light bg-light mb-5">
+      <a class="navbar-brand" href="/home"><i class="material-icons">home</i></a>
+      <div class="navbar-expand mr-auto">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/home">Home</a>
+          <a class="nav-item nav-link" href="/new">New</a>
+          <a class="nav-item nav-link" href="/offers">Offers</a>
+        </div>
+      </div>
+      <div class="navbar-expand ml-auto navbar-nav">
+        <div class="navbar-nav">
+          <ul *ngIf="!isLoggedIn; else elseBlock" class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/login']">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/register']">Register</a>
+            </li>
+          </ul>
+          <ng-template #elseBlock>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button (click)="goToCart()" class="btn btn-circle btn-xl"aria-expanded="false"> <span class="material-icons"> shopping_cart </span></button>
+                <span class="cart-items-count"><span class="notification-counter">{{items}}</span></span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin-panel']">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="logout()" href="">Logout</a>
+              </li>
+            </ul>
+          </ng-template>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <body class="jumbotron">
+    <router-outlet></router-outlet>
+    <div class="myalert">
+      <div *ngIf="err" class="alert alert-danger">
+        {{err}}
+      </div>
+      <div *ngIf="addNotify" class="alert alert-info" role="alert" data-auto-dismiss="2000">
+        {{addNotify}}
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="box grid-container-div" *ngFor="let product of products">
+        <img (click)=showProduct(product) style="cursor:pointer" class="gridImg" src="https://image.flaticon.com/icons/png/512/22/22791.png"
+          alt="Image">
+        <h5>{{product.name | uppercase }}</h5>
+        <h4>{{product.price | currency:'INR' }}</h4>
+        <p> {{product.description}}</p>
+        <p style="color:green">In Stock: {{product.stock}}</p>
+        <button (click)="buyNow(product)" class="btn btn-success"> Buy Now </button>
+        <button (click)="addToCart(product)" class="btn btn-secondary" style="margin-left:20px; "> <i class="material-icons"
+            style="font-size: 12px;">
+            add_shopping_cart
+          </i> </button>
+      </div>
+    </div>
+  </body>
+</div>

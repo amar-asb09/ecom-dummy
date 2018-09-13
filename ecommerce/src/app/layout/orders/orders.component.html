@@ -1,0 +1,35 @@
+
+<h2 class="title"> Recent Orders </h2>
+<div class="myalert">
+  <div *ngIf="err" class="alert alert-danger">
+    {{err}}
+  </div>
+</div>
+<div class="grid-container">
+  <div class="box grid-container-div" *ngFor="let data of data; let i = index">
+    <img class="gridImg" src="https://image.flaticon.com/icons/png/512/22/22791.png"
+      alt="Image">
+    <h5>{{data.productName | titlecase }} : {{data.productPrice | currency:'INR' }} </h5>
+    <h5>{{data.productDesc }}</h5>
+    <p  class="alert alert-success"> {{data.status | titlecase}}</p>
+    <div class="form-group row">
+        <select class="form-control paymentSection col-md-8" [(ngModel)]="status" >
+          <option value="Approved" selected> Approved </option>
+          <option value="Shipped"> Shipped </option>
+          <option value="On The Way"> On The way </option>
+          <option value="Delivered"> Delivered </option>
+          <option value="Delayed"> Delayed </option>
+          <option value="Cancelled"> Cancelled </option>
+        </select>
+        <button class="col-md-4" type="submit" style="float:right; margin-left: 10px" (click)="updateOrder(data)" class="btn btn-info">Update</button>
+      </div>
+  </div>
+</div>
+<div *ngIf="showPaymentOptions; else noPaymentOption">
+  <h4 class="alert alert-info">Total Amount : {{ totalAmount | currency:'INR'}} </h4>
+  </div>
+  <ng-template #noPaymentOption>
+    <div class="empty">
+      <h5> No Active Orders ! </h5>
+    </div>
+  </ng-template>

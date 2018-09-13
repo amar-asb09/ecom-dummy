@@ -1,0 +1,67 @@
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 15px;
+    padding: 25px 20px;
+    width: auto;
+  }
+  
+  .grid-container-div {
+    background-color: white;
+    text-align: center;
+    color: black;
+    width: 100%;
+    padding: 10px 0;
+    transition: box-shadow .3s;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .row
+  {
+    width: auto;
+    margin-left: 20px;
+  }
+  
+  .gridImg {
+    width: 200px;
+    height: 200px;
+  }
+  .empty
+  {
+    background-color:white;
+    text-align: center;
+    height: 200px;
+    padding: 95px;
+  }
+
+.title
+{
+  text-align: center;
+}
+
+.myalert
+{
+    width: 50%;
+    text-align: center;
+    margin: 50px auto 0 auto;
+}
+
+.paymentSection
+{
+  width: 50%;
+}
+
+
+.remove
+{
+  float: right;
+  margin-right:20px;
+  color: grey;
+}
+
+.remove:hover{
+  color: red;
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<h2 class="title"> Cart Items </h2>
+<div class="myalert">
+  <div *ngIf="err" class="alert alert-danger">
+    {{err}}
+  </div>
+</div>
+<div class="grid-container">
+  <div class="box grid-container-div" *ngFor="let data of data; let i = index">
+      <div>
+          <i (click)="removeItem(data)" class="material-icons remove">clear</i>
+      </div>
+    <img (click)=showProduct(product) style="cursor:pointer" class="gridImg" src="https://image.flaticon.com/icons/png/512/22/22791.png"
+      alt="Image">
+    
+    <h5>{{data.productName | titlecase }} : {{data.productPrice | currency:'INR' }} </h5>
+    <h5>{{data.productDesc }}</h5>
+    <p class="alert alert-success">{{data.status | titlecase}}</p>
+  </div>
+</div>
+<div *ngIf="showPaymentOptions; else noPaymentOption">
+  <h4 class="alert alert-info">Total Amount : {{ totalAmount | currency:'INR'}} </h4>
+      <label for="payment" class="label"> Select Payment Method</label>
+  <div class="form-group row">
+    <select class="form-control paymentSection col-md-9" name="paid" >
+      <option value="COD" selected> Cash On Delivery</option>
+      <option value="Cashless"> Debit/Credit </option>
+    </select>
+    <input class="col-md-3" type="button" style="float:right; margin-left: 20px" (click)="proceed()" value="Proceed" class="btn btn-info">
+  </div>
+  </div>
+  <ng-template #noPaymentOption>
+    <div class="empty">
+      <h5> Cart Empty ! </h5>
+    </div>
+  </ng-template>
