@@ -12,10 +12,11 @@
     <h5>{{data.productName | titlecase }} : {{data.productPrice | currency:'INR' }} </h5>
     <h5>{{data.productDesc }}</h5>
     <p class="alert alert-success">{{data.status | titlecase}}</p>
+    <p class="alert alert-warning">{{data.paymentType | titlecase}}</p>
   </div>
 </div>
 <div *ngIf="showPaymentOptions; else noPaymentOption">
-  <h4 class="alert alert-info">Total Amount : {{ totalAmount | currency:'INR'}} </h4>
+  <h4 class="alert alert-info">Total Amount : {{ totalAmount | currency:'INR'}}  </h4>
   </div>
   <ng-template #noPaymentOption>
     <div class="empty">

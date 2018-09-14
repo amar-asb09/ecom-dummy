@@ -21,6 +21,7 @@ export class CartComponent implements OnInit {
   totalAmount = 0;
   itemCount;
   showPaymentOptions: boolean = false;
+  paymentType:string='';
 
   ngOnInit() {
     this.auth.getFromCart().subscribe(data => {
@@ -73,12 +74,14 @@ export class CartComponent implements OnInit {
       for (let i = 0; i < data.length; i++) 
       {
         console.log(data[i].productName);
-        let orderData = {
+        let orderData = 
+        {
           "productName": data[i].productName,
           "productPrice": data[i].productPrice,
           "productDesc": data[i].productDesc,
           "paid": false,
-          "status": "Ordered"
+          "status": "Ordered",
+          "paymentType":this.paymentType
         }
         this.auth.setOrders(orderData).subscribe(data => 
           {

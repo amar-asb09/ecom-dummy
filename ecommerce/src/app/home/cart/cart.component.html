@@ -14,14 +14,14 @@
     
     <h5>{{data.productName | titlecase }} : {{data.productPrice | currency:'INR' }} </h5>
     <h5>{{data.productDesc }}</h5>
-    <p class="alert alert-success">{{data.status | titlecase}}</p>
+    <p class="alert alert-success">{{data.status | titlecase}} </p>
   </div>
 </div>
 <div *ngIf="showPaymentOptions; else noPaymentOption">
   <h4 class="alert alert-info">Total Amount : {{ totalAmount | currency:'INR'}} </h4>
       <label for="payment" class="label"> Select Payment Method</label>
   <div class="form-group row">
-    <select class="form-control paymentSection col-md-9" name="paid" >
+    <select class="form-control paymentSection col-md-9" [(ngModel)]="paymentType" >
       <option value="COD" selected> Cash On Delivery</option>
       <option value="Cashless"> Debit/Credit </option>
     </select>

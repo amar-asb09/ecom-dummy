@@ -28,7 +28,7 @@ export class MyOrdersComponent implements OnInit {
           this.showPaymentOptions = true;
         }
         for (let i = 0; i < data.length; i++) {
-          console.log(data[i].productPrice)
+          console.log(data[i].paymentType)
           this.totalAmount += data[i].productPrice;
         }
 

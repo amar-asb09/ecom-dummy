@@ -50,6 +50,7 @@ export class LayoutComponent implements OnInit {
     this.router.navigate(['dashboard'], {
       relativeTo: this.route
     });
+    window.scrollTo(0,100)
    
   }
 
@@ -57,51 +58,61 @@ export class LayoutComponent implements OnInit {
     this.router.navigate(['customers'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
   addProducts() 
   {
-    this.router.navigate(['products'], {
+    this.router.navigate(['products'], 
+    {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
 
   showRevenue() {
     this.router.navigate(['revenue'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
 
   showIssues() {
     this.router.navigate(['issues'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
   showReports() {
     this.router.navigate(['bugs'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
   showNotification() {
     this.router.navigate(['notification'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
 
   showStats() {
     this.router.navigate(['statistics'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
 
   showOrder() {
     this.router.navigate(['orders'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
   showSetting() {
     this.router.navigate(['settings'], {
       relativeTo: this.route
     })
+    window.scrollTo(0,100)
   }
 
   logout()
